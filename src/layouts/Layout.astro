@@ -1,4 +1,6 @@
 ---
+import ButtonGradient from '~/components/button-gradient.astro'
+
 interface Props {
 	title: string
 }
@@ -10,13 +12,94 @@ const { title } = Astro.props
 <html lang='en'>
 	<head>
 		<meta charset='UTF-8' />
-		<meta name='description' content='Astro description' />
+		<meta name='description' content='Portfolio site for Baatchia Riyadh' />
 		<meta name='viewport' content='width=device-width' />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 		<meta name='generator' content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
+	<body class='bg-ink-black font-sora'>
 		<slot />
+		<ButtonGradient />
 	</body>
 </html>
+
+<style is:global>
+	:root {
+		color-scheme: dark;
+	}
+
+	* {
+		scroll-behavior: smooth;
+	}
+
+	@font-face {
+		font-family: 'Sora';
+		src:
+			url('/fonts/subset-Sora-Light.woff2') format('woff2'),
+			url('/fonts/subset-Sora-Light.woff') format('woff');
+		font-weight: 300;
+		font-style: normal;
+		font-display: optional;
+	}
+
+	@font-face {
+		font-family: 'Sora';
+		src:
+			url('/fonts/subset-Sora-Regular.woff2') format('woff2'),
+			url('/fonts/subset-Sora-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: optional;
+	}
+
+	@font-face {
+		font-family: 'Sora';
+		src:
+			url('/fonts/subset-Sora-SemiBold.woff2') format('woff2'),
+			url('/fonts/subset-Sora-SemiBold.woff') format('woff');
+		font-weight: 600;
+		font-style: normal;
+		font-display: optional;
+	}
+
+	@font-face {
+		font-family: 'Source Code Pro';
+		src:
+			url('/fonts/subset-SourceCodePro-Regular.woff2') format('woff2'),
+			url('/fonts/subset-SourceCodePro-Regular.woff') format('woff');
+		font-weight: normal;
+		font-style: normal;
+		font-display: optional;
+	}
+
+	@font-face {
+		font-family: 'Source Code Pro';
+		src:
+			url('/fonts/subset-SourceCodePro-Semibold.woff2') format('woff2'),
+			url('/fonts/subset-SourceCodePro-Semibold.woff') format('woff');
+		font-weight: 600;
+		font-style: normal;
+		font-display: optional;
+	}
+
+	@font-face {
+		font-family: 'Source Code Pro';
+		src:
+			url('/fonts/subset-SourceCodePro-Bold.woff2') format('woff2'),
+			url('/fonts/subset-SourceCodePro-Bold.woff') format('woff');
+		font-weight: bold;
+		font-style: normal;
+		font-display: optional;
+	}
+
+	@font-face {
+		font-family: 'Space Grotesk';
+		src:
+			url('/fonts/subset-SpaceGrotesk-Light.woff2') format('woff2'),
+			url('/fonts/subset-SpaceGrotesk-Light.woff') format('woff');
+		font-weight: 300;
+		font-style: normal;
+		font-display: optional;
+	}
+</style>

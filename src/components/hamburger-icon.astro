@@ -1,0 +1,30 @@
+<svg class='overflow-visible' width='20' height='12' viewBox='0 0 20 12'>
+	<rect
+		id='nav-btn-rect-1'
+		class='origin-center transition-all'
+		width='20'
+		height='2'
+		rx='1'
+		fill='white'></rect>
+	<rect
+		id='nav-btn-rect-2'
+		class='origin-center transition-all'
+		width='20'
+		height='2'
+		rx='1'
+		fill='white'></rect>
+</svg>
+
+<script>
+	import { isNavOpen } from '~/store'
+
+	isNavOpen.subscribe((open) => {
+		const rect1 = document.getElementById('nav-btn-rect-1')
+		const rect2 = document.getElementById('nav-btn-rect-2')
+
+		rect1?.setAttribute('y', open ? '5' : '0')
+		rect2?.setAttribute('y', open ? '5' : '10')
+		rect1?.setAttribute('transform', `rotate(${open ? '45' : '0'})`)
+		rect2?.setAttribute('transform', `rotate(${open ? '-45' : '0'})`)
+	})
+</script>

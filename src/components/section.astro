@@ -1,0 +1,36 @@
+---
+import { Icon } from 'astro-icon/components'
+import type { HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn, tw } from '~/libs/utils'
+
+const sectionVariants = cva(
+	tw`relative border-x border-b border-charcoal-black`,
+	{
+		variants: {
+			intent: {},
+		},
+	}
+)
+
+export interface Props
+	extends HTMLAttributes<'section'>,
+		VariantProps<typeof sectionVariants> {}
+
+//For Astro components, we recommend setting your defaultVariants within
+//Astro.props (which are `undefined` by default)
+const { class: classProp, ...props } = Astro.props
+---
+
+<section class={cn(sectionVariants({ class: classProp }))} {...props}>
+	<slot />
+
+	<Icon
+		name='plus'
+		class='absolute bottom-0 left-0 z-10 size-3 -translate-x-1/2 translate-y-1/2'
+	/>
+	<Icon
+		name='plus'
+		class='absolute bottom-0 right-0 z-10 size-3 translate-x-1/2 translate-y-1/2'
+	/>
+</section>

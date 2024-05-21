@@ -1,16 +1,9 @@
 import tailwind from '@astrojs/tailwind'
+import icon from 'astro-icon'
 import { defineConfig } from 'astro/config'
-import path from 'path'
 
 // https://astro.build/config
 export default defineConfig({
-	integrations: [tailwind()],
-	server: {
-		port: 3000,
-	},
-	resolve: {
-		alias: {
-			'~': path.resolve(__dirname, './src'),
-		},
-	},
+	integrations: [tailwind(), icon({ iconDir: 'src/assets/svgs' })],
+	server: { port: 3000 },
 })

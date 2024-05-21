@@ -1,9 +1,12 @@
 ---
-import Layout from '../layouts/layout.astro'
+import Hero from '~/components/hero.astro'
+import Navbar from '~/components/navbar.astro'
+import Layout from '~/layouts/layout.astro'
 ---
 
-<Layout title='Welcome to Astro.'>
-	<main>
-		<h1>Welcome to <span class='text-red-700'>Astro</span></h1>
+<Layout title='Baatchia Riyadh'>
+	<Navbar />
+	<main class='px-4 pb-8 pt-20 md:px-6 lg:px-8'>
+		<Hero />
 	</main>
 </Layout>

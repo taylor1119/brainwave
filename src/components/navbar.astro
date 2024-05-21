@@ -1,0 +1,108 @@
+---
+import NavbarBackdrop from './navbar-backdrop.astro'
+import HamburgerIcon from './hamburger-icon.astro'
+import Button from './button.astro'
+
+const ITEMS = [
+	{
+		label: 'About me',
+		link: '#about',
+	},
+	{
+		label: 'Projects',
+		link: '#projects',
+	},
+	{
+		label: 'Skills',
+		link: '#skills',
+	},
+	{
+		label: 'Contact',
+		link: '#contact',
+	},
+] as const
+---
+
+<nav
+	id='header'
+	class='fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between border-b border-deep-indigo px-5 py-4 lg:bg-ink-black/90 lg:px-8 lg:backdrop-blur-sm xl:px-10'
+>
+	<div class='w-24'>
+		<a class='px-4 py-2' href='#hero'> logo </a>
+	</div>
+
+	<div
+		id='nav-mobile'
+		class='fixed bottom-0 left-0 right-0 top-20 bg-ink-black max-lg:hidden lg:static lg:bg-transparent'
+	>
+		<div
+			id='nav-items-container'
+			class='z-20 flex size-full items-center justify-center max-lg:flex-col'
+		>
+			{
+				ITEMS.map((item) => (
+					<a
+						href={item.link}
+						class='relative block px-6 font-code text-2xl uppercase text-white transition-colors hover:text-lavender-purple max-lg:py-8 lg:text-sm lg:font-semibold lg:leading-5 lg:text-white/50 lg:hover:text-white xl:px-12'
+					>
+						{item.label}
+					</a>
+				))
+			}
+		</div>
+
+		<NavbarBackdrop />
+	</div>
+
+	<div class='flex w-24 justify-end'>
+		<Button
+			id='nav-button'
+			intent='outlined-gradient'
+			class='px-3 lg:hidden'
+		>
+			<HamburgerIcon />
+		</Button>
+	</div>
+</nav>
+
+<script>
+	import { isNavOpen } from '~/store'
+	import { tw } from '~/libs/utils'
+
+	document
+		.getElementById('nav-button')
+		?.addEventListener('click', () => isNavOpen.set(!isNavOpen.get()))
+
+	const navItems = document.querySelectorAll('#nav-items-container > a')
+	for (const item of navItems) {
+		item.addEventListener('click', () => isNavOpen.set(false))
+	}
+
+	isNavOpen.subscribe((open) => {
+		const header = document.getElementById('header')
+		const navItems = document.getElementById('nav-mobile')
+
+		const headerClosedClasses = tw`bg-ink-black/90 backdrop-blur-sm`
+		const headerOpenClass = tw`bg-ink-black`
+		const navClosedClass = tw`max-lg:hidden`
+
+		if (open) {
+			header?.classList.remove(
+				...headerClosedClasses.split(' '),
+				navClosedClass
+			)
+			header?.classList.add(headerOpenClass)
+
+			navItems?.classList.remove(navClosedClass)
+
+			document.body.style.overflow = 'hidden'
+		} else {
+			header?.classList.remove(headerOpenClass, navClosedClass)
+			header?.classList.add(...headerClosedClasses.split(' '))
+
+			navItems?.classList.add(navClosedClass)
+
+			document.body.style.overflow = 'auto'
+		}
+	})
+</script>
