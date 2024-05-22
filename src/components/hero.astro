@@ -13,15 +13,14 @@ import Section from './section.astro'
 		<h1
 			class='pb-6 text-[2.5rem] font-semibold leading-[3.25rem] md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem]'
 		>
-			Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {` `}
+			Explore the Possibilities of&nbsp;AI&nbsp;Chatting with
 			<span class='relative'>
-				Brainwave{' '}
+				Brainwave
 				<Image
 					src={curve}
-					class='absolute -bottom-2 left-0 w-full'
-					width={624}
-					height={28}
+					loading='eager'
 					alt='Curve'
+					class='absolute -bottom-2 left-0 w-full'
 				/>
 			</span>
 		</h1>
@@ -38,7 +37,12 @@ import Section from './section.astro'
 		<div
 			class='absolute -top-[54%] left-1/2 -z-20 w-[234%] -translate-x-1/2 md:-top-[46%] md:w-[138%] lg:-top-[104%]'
 		>
-			<Image src={heroBackground} class='w-full' alt='hero' />
+			<Image
+				src={heroBackground}
+				alt='hero'
+				loading='eager'
+				class='w-full'
+			/>
 		</div>
 
 		<div class='rounded-2xl bg-conic-gradient p-0.5'>
@@ -49,8 +53,9 @@ import Section from './section.astro'
 			>
 				<Image
 					src={robot}
-					class='w-full translate-y-[8%] max-md:scale-[1.7] md:-translate-y-[10%] lg:-translate-y-[23%]'
 					alt='Robot'
+					loading='eager'
+					class='w-full translate-y-[8%] max-md:scale-[1.7] md:-translate-y-[10%] lg:-translate-y-[23%]'
 				/>
 			</div>
 
