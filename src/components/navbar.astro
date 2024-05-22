@@ -2,6 +2,7 @@
 import NavbarBackdrop from './navbar-backdrop.astro'
 import HamburgerIcon from './hamburger-icon.astro'
 import Button from './button.astro'
+import { Icon } from 'astro-icon/components'
 
 const ITEMS = [
 	{
@@ -17,18 +18,24 @@ const ITEMS = [
 		link: '#skills',
 	},
 	{
-		label: 'Contact',
-		link: '#contact',
+		label: 'Experience',
+		link: '#experience',
 	},
 ] as const
 ---
 
 <nav
 	id='header'
-	class='fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between border-b border-deep-indigo px-5 py-4 lg:bg-ink-black/90 lg:px-8 lg:backdrop-blur-sm xl:px-10'
+	class='fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between border-b border-slate-gray px-5 py-4 lg:bg-ink-black/90 lg:px-8 lg:backdrop-blur-sm xl:px-10'
 >
-	<div class='w-24'>
-		<a class='px-4 py-2' href='#hero'> logo </a>
+	<div class='w-44'>
+		<a class='flex items-center gap-x-1' href='#hero'>
+			<Icon name='logo' class='size-10' />
+			<span
+				class='bg-gradient-to-r from-lavender-purple to-bubblegum-pink bg-clip-text text-3xl font-bold text-transparent'
+				>Riyadh_</span
+			>
+		</a>
 	</div>
 
 	<div
@@ -54,7 +61,14 @@ const ITEMS = [
 		<NavbarBackdrop />
 	</div>
 
-	<div class='flex w-24 justify-end'>
+	<div class='flex w-44 justify-end'>
+		<Button
+			id='nav-button'
+			intent='outlined-gradient'
+			class='max-lg:hidden'
+		>
+			Email me
+		</Button>
 		<Button
 			id='nav-button'
 			intent='outlined-gradient'
