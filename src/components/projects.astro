@@ -19,19 +19,26 @@ const brightBgs = [
 ]
 ---
 
-<Section class='space-y-20 py-24'>
+<Section class='py-24'>
+	<div
+		class='flex items-center justify-center gap-x-2 pb-4 font-grotesk text-xs font-light uppercase tracking-tagline text-lilac-gray'
+	>
+		<Icon name='bracket-left' class='size-4' />
+		<span>A Selections of My Works</span>
+		<Icon name='bracket-right' class='size-4' />
+	</div>
 	<h1
-		class='text-center text-[1.75rem] leading-[2.5rem] md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight'
+		class='pb-20 text-center text-[1.75rem] leading-[2.5rem] md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight'
 	>
 		Featured Projects
 	</h1>
 
 	<div
-		class='grid grid-cols-1 place-items-center gap-x-14 gap-y-8 px-2 lg:grid-cols-2 lg:px-16 xl:grid-cols-3'
+		class='grid grid-cols-1 place-items-center gap-x-14 gap-y-8 lg:grid-cols-2 lg:px-16 xl:grid-cols-3'
 	>
 		{
 			benefits.map((item, i) => (
-				<div class='group relative aspect-[12/11] w-full'>
+				<div class='group relative aspect-[12/11] w-full max-w-md'>
 					{i % 2 === 0 && (
 						<div class='absolute left-1/4 top-0 -z-10 aspect-square w-full bg-radial-gradient from-[#28206C] to-[#28206C]/0 to-70%' />
 					)}
