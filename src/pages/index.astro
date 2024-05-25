@@ -1,4 +1,6 @@
 ---
+import Footer from '~/components/Footer.astro'
+import Experience from '~/components/experience.astro'
 import Hero from '~/components/hero.astro'
 import Navbar from '~/components/navbar.astro'
 import Projects from '~/components/projects.astro'
@@ -7,8 +9,10 @@ import Layout from '~/layouts/layout.astro'
 
 <Layout title='Baatchia Riyadh'>
 	<Navbar />
-	<main class='overflow-hidden px-2 pb-8 pt-20 md:px-6 lg:px-8'>
+	<main class='overflow-hidden px-2 pt-20 md:px-6 lg:px-8'>
 		<Hero />
 		<Projects />
+		<Experience />
+		<Footer />
 	</main>
 </Layout>

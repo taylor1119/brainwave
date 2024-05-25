@@ -1,0 +1,94 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import gradient from '~/assets/imgs/gradient.png'
+import grid from '~/assets/imgs/grid.png'
+import Section from './section.astro'
+
+const roadmap = new Array(6).fill({
+	title: 'Voice recognition',
+	text: 'Enable the chatbot to understand and respond to voice commands, making it easier for users to interact with the app hands-free.',
+	date: 'May 2023',
+	status: 'done',
+	colorful: true,
+})
+---
+
+<Section class='py-24'>
+	<div
+		class='flex items-center justify-center gap-x-2 pb-4 font-grotesk text-xs font-light uppercase tracking-tagline text-lilac-gray'
+	>
+		<Icon name='bracket-left' class='size-4' />
+		<span>My Journey</span>
+		<Icon name='bracket-right' class='size-4' />
+	</div>
+	<h1
+		class='pb-20 text-center text-[1.75rem] leading-[2.5rem] md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight'
+	>
+		Experience
+	</h1>
+
+	<div
+		class='grid grid-cols-1 justify-center gap-8 px-2 pb-24 lg:grid-cols-[repeat(2,minmax(0,_38rem))] lg:px-12'
+	>
+		{
+			roadmap.map((item) => (
+				<div
+					class:list={[
+						item.colorful
+							? 'bg-conic-gradient'
+							: 'bg-charcoal-black',
+						'relative w-full rounded-3xl p-px even:md:translate-y-24',
+					]}
+				>
+					<div class='rounded-3xl bg-ink-black p-8 md:p-16'>
+						<div class='flex items-center justify-between pb-10'>
+							<div class='flex items-center gap-x-2 rounded bg-white px-4 py-1 font-code text-sm font-semibold text-deep-indigo'>
+								<Icon name='briefcase' class='size-4' />
+								<span>BJD IT</span>
+							</div>
+
+							<div class='flex items-center justify-center gap-x-2 font-grotesk text-xs font-light uppercase tracking-tagline text-lilac-gray'>
+								<Icon name='bracket-left' class='size-4' />
+								<span>2023 - 2024</span>
+								<Icon name='bracket-right' class='size-4' />
+							</div>
+						</div>
+
+						<h2 class='pb-2 text-3xl leading-normal'>
+							Frontend Web Developer
+						</h2>
+
+						<ul class='space-y-2 font-light text-slate-gray'>
+							{Array.from({ length: 5 }).map(() => (
+								<li>
+									Developed various scripts to automate a
+									variety of repetitive task to increase
+									productivity and efficiency.
+								</li>
+							))}
+						</ul>
+
+						<Image
+							src={grid}
+							alt='Grid'
+							class='absolute inset-0 w-full'
+						/>
+					</div>
+				</div>
+			))
+		}
+	</div>
+
+	<Image
+		src={gradient}
+		alt='Grid'
+		class='absolute -left-[30rem] top-14 w-[56rem] opacity-60 mix-blend-color-dodge'
+	/>
+
+	<Image
+		src={gradient}
+		alt='Grid'
+		class='absolute -right-[20rem] bottom-24 w-[56rem] opacity-60 mix-blend-color-dodge'
+	/>
+</Section>

@@ -1,0 +1,22 @@
+<section class='relative border-x border-charcoal-black px-16 py-10'>
+	<div
+		class='flex flex-wrap items-center justify-center gap-10 sm:justify-between'
+	>
+		<p class='text-steel-gray'>
+			© {new Date().getFullYear()}. All rights reserved.
+		</p>
+
+		<ul class='flex flex-wrap justify-center gap-5'>
+			{
+				Array.from({ length: 5 }).map(() => (
+					<a
+						href='/'
+						aria-label='link'
+						target='_blank'
+						class='flex size-10 items-center justify-center rounded-full border border-charcoal-black bg-night-black transition-colors hover:bg-deep-indigo'
+					/>
+				))
+			}
+		</ul>
+	</div>
+</section>
