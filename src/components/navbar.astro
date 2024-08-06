@@ -6,20 +6,34 @@ import { Icon } from 'astro-icon/components'
 
 const ITEMS = [
 	{
-		label: 'About me',
-		link: '#about',
+		label: 'Features',
+		link: '#features',
+		mobileOnly: false,
 	},
 	{
-		label: 'Projects',
-		link: '#projects',
+		label: 'Pricing',
+		link: '#pricing',
+		mobileOnly: false,
 	},
 	{
-		label: 'Skills',
-		link: '#skills',
+		label: 'How to use',
+		link: '#how-to-use',
+		mobileOnly: false,
 	},
 	{
-		label: 'Experience',
-		link: '#experience',
+		label: 'Roadmap',
+		link: '#roadmap',
+		mobileOnly: false,
+	},
+	{
+		label: 'New account',
+		link: '#signup',
+		mobileOnly: true,
+	},
+	{
+		label: 'Sign in',
+		link: '#login',
+		mobileOnly: true,
 	},
 ] as const
 ---
@@ -28,12 +42,12 @@ const ITEMS = [
 	id='header'
 	class='fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between border-b border-slate-gray px-5 py-4 lg:bg-ink-black/90 lg:px-8 lg:backdrop-blur-sm xl:px-10'
 >
-	<div class='w-44'>
+	<div class='w-60'>
 		<a class='flex items-center gap-x-1' href='#hero'>
 			<Icon name='logo' class='size-10' />
 			<span
 				class='bg-gradient-to-r from-lavender-purple to-bubblegum-pink bg-clip-text text-3xl font-bold text-transparent'
-				>Riyadh_</span
+				>Brainwave_</span
 			>
 		</a>
 	</div>
@@ -50,7 +64,10 @@ const ITEMS = [
 				ITEMS.map((item) => (
 					<a
 						href={item.link}
-						class='relative block px-6 font-code text-2xl uppercase text-white transition-colors hover:text-lavender-purple max-lg:py-8 lg:text-sm lg:font-semibold lg:leading-5 lg:text-white/50 lg:hover:text-white xl:px-12'
+						class:list={[
+							{ 'md:hidden': item.mobileOnly },
+							'relative block px-6 font-code text-2xl uppercase text-white transition-colors hover:text-lavender-purple max-lg:py-8 lg:text-sm lg:font-semibold lg:leading-5 lg:text-white/50 lg:hover:text-white xl:px-12',
+						]}
 					>
 						{item.label}
 					</a>
@@ -61,12 +78,12 @@ const ITEMS = [
 		<NavbarBackdrop />
 	</div>
 
-	<div class='flex w-44 justify-end'>
-		<Button
-			id='nav-button'
-			intent='outlined-gradient'
-			class='max-lg:hidden'
+	<div class='flex w-60 justify-end gap-x-8'>
+		<button
+			class='font-code text-xs font-bold uppercase text-white/50 hover:text-white max-lg:hidden'
+			>New account</button
 		>
+		<Button intent='outlined-gradient' class='max-lg:hidden'>
 			Email me
 		</Button>
 		<Button
@@ -80,8 +97,8 @@ const ITEMS = [
 </nav>
 
 <script>
-	import { isNavOpen } from '~/store'
 	import { tw } from '~/libs/utils'
+	import { isNavOpen } from '~/store'
 
 	document
 		.getElementById('nav-button')

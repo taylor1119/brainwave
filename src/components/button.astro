@@ -4,12 +4,13 @@ import { cva, type VariantProps } from 'class-variance-authority'
 import { cn, tw } from '~/libs/utils'
 
 const buttonVariants = cva(
-	tw`relative inline-flex h-11 items-center justify-center px-7 font-code text-xs font-bold uppercase tracking-wider transition-colors hover:text-lavender-purple`,
+	tw`relative inline-flex h-11 items-center justify-center px-7 font-code text-xs font-bold uppercase tracking-wider transition-colors`,
 	{
 		variants: {
 			intent: {
-				'outlined-gradient': tw`text-white`,
-				'contained-white': tw`text-ink-black`,
+				'outlined-gradient': tw`text-white hover:text-lavender-purple`,
+				'contained-white': tw`text-ink-black hover:text-lavender-purple`,
+				ghost: tw`text-white/50 hover:text-white`,
 			},
 		},
 	}

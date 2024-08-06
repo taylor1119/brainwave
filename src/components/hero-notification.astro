@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets'
+import notification1 from '~/assets/imgs/notification-1.png'
+import notification2 from '~/assets/imgs/notification-2.png'
+import notification3 from '~/assets/imgs/notification-3.png'
+import notification4 from '~/assets/imgs/notification-4.png'
+
+const notificationImages = [notification2, notification3, notification4]
+---
+
+<div
+	class='absolute -right-24 bottom-48 hidden w-[18rem] items-center gap-5 rounded-2xl border border-white/10 bg-shadow-gray/40 p-4 pr-6 backdrop-blur xl:flex'
+>
+	<Image
+		src={notification1}
+		width={62}
+		height={62}
+		alt='Notification'
+		class='rounded-xl'
+	/>
+
+	<div class='flex-1'>
+		<h6 class='mb-1 text-base font-semibold'>Code generation</h6>
+
+		<div class='flex items-center justify-between'>
+			<ul class='-m-0.5 flex gap-x-2'>
+				{
+					notificationImages.map((item) => (
+						<li>
+							<Image
+								src={item}
+								alt='Notification'
+								class='w-full rounded-full'
+								width={24}
+								height={24}
+							/>
+						</li>
+					))
+				}
+			</ul>
+			<div class='body-2 text-steel-gray'>1m ago</div>
+		</div>
+	</div>
+</div>
