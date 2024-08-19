@@ -5,16 +5,17 @@ import curve from '~/assets/imgs/curve.png'
 import heroBackground from '~/assets/imgs/hero-background.jpg'
 import loading from '~/assets/imgs/loading.png'
 import robot from '~/assets/imgs/robot.jpg'
-import Button from './button.astro'
-import HeroBackdrop from './hero-backdrop.astro'
-import HeroNotification from './hero-notification.astro'
-import Section from './section.astro'
+import Button from '~/components/primitive/button.astro'
+import Section from '~/components/primitive/section.astro'
+import HeroBackdrop from './backdrop.astro'
+import CompanyLogos from './company-logos.astro'
+import HeroNotification from './notification.astro'
 ---
 
 <Section class='py-24'>
-	<div class='mx-auto max-w-6xl pb-20 text-center'>
+	<div class='mx-auto max-w-5xl pb-20 text-center'>
 		<h1
-			class='bg-opacity-95 pb-6 text-[2.5rem] font-semibold leading-[3.25rem] md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem]'
+			class='pb-6 text-[2.5rem] font-semibold leading-[3.25rem] opacity-90 md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem]'
 		>
 			Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {` `}
 			<span class='relative'>
@@ -75,7 +76,12 @@ import Section from './section.astro'
 		<div
 			class='absolute bottom-20 right-1/2 flex w-4/5 translate-x-1/2 items-center rounded-[1.7rem] bg-ink-black/80 px-6 py-4 text-base md:w-[32rem]'
 		>
-			<Image class='mr-4 h-5 w-5' src={loading} alt='Loading' />
+			<Image
+				src={loading}
+				alt='Loading'
+				loading='eager'
+				class='mr-4 h-5 w-5'
+			/>
 			<p>AI is generating</p>
 		</div>
 
@@ -83,7 +89,7 @@ import Section from './section.astro'
 			class='absolute -left-24 bottom-32 hidden rounded-2xl border border-white/10 bg-shadow-gray/40 px-1 py-1 backdrop-blur xl:flex'
 		>
 			{
-				['home-smile', 'file-02', 'search-md', 'plus-square'].map(
+				['home-smile', 'file-2', 'search-md', 'plus-square'].map(
 					(name) => (
 						<li class='p-5'>
 							<Icon name={name} width={24} height={25} />
@@ -97,4 +103,6 @@ import Section from './section.astro'
 	</div>
 
 	<HeroBackdrop />
+
+	<CompanyLogos />
 </Section>

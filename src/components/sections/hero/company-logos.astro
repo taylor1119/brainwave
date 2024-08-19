@@ -1,0 +1,20 @@
+---
+import { Icon } from 'astro-icon/components'
+---
+
+<div class='space-y-16 pt-20 max-lg:hidden'>
+	<h5
+		class='text-center font-grotesk text-xs font-light uppercase tracking-tagline text-white/50'
+	>
+		Helping people create beautiful content at
+	</h5>
+	<ul class='flex'>
+		{
+			Array.from({ length: 5 }).map(() => (
+				<li class='flex flex-1 items-center justify-center'>
+					<Icon name='company-logo' width={134} height={28} />
+				</li>
+			))
+		}
+	</ul>
+</div>

@@ -3,7 +3,7 @@ import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import gradient from '~/assets/imgs/gradient.png'
 import grid from '~/assets/imgs/grid.png'
-import Section from './section.astro'
+import Section from '../primitive/section.astro'
 
 const roadmap = new Array(6).fill({
 	title: 'Voice recognition',
@@ -72,6 +72,7 @@ const roadmap = new Array(6).fill({
 						<Image
 							src={grid}
 							alt='Grid'
+							loading='eager'
 							class='absolute inset-0 w-full'
 						/>
 					</div>
@@ -83,12 +84,14 @@ const roadmap = new Array(6).fill({
 	<Image
 		src={gradient}
 		alt='Grid'
+		loading='eager'
 		class='absolute -left-[30rem] top-14 w-[56rem] opacity-60 mix-blend-color-dodge'
 	/>
 
 	<Image
 		src={gradient}
 		alt='Grid'
+		loading='lazy'
 		class='absolute -right-[20rem] bottom-24 w-[56rem] opacity-60 mix-blend-color-dodge'
 	/>
 </Section>

@@ -15,6 +15,7 @@ const notificationImages = [notification2, notification3, notification4]
 		src={notification1}
 		width={62}
 		height={62}
+		loading='eager'
 		alt='Notification'
 		class='rounded-xl'
 	/>
@@ -29,10 +30,11 @@ const notificationImages = [notification2, notification3, notification4]
 						<li>
 							<Image
 								src={item}
-								alt='Notification'
-								class='w-full rounded-full'
 								width={24}
 								height={24}
+								loading='eager'
+								alt='Notification'
+								class='w-full rounded-full'
 							/>
 						</li>
 					))

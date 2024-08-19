@@ -1,9 +1,8 @@
 ---
-import Footer from '~/components/Footer.astro'
-import Experience from '~/components/experience.astro'
-import Hero from '~/components/hero.astro'
-import Navbar from '~/components/navbar.astro'
-import Projects from '~/components/projects.astro'
+import Footer from '~/components/sections/Footer.astro'
+import Benefits from '~/components/sections/benefits.astro'
+import Hero from '~/components/sections/hero/index.astro'
+import Navbar from '~/components/sections/navbar/index.astro'
 import Layout from '~/layouts/layout.astro'
 ---
 
@@ -11,8 +10,7 @@ import Layout from '~/layouts/layout.astro'
 	<Navbar />
 	<main class='overflow-hidden px-2 pt-20 md:px-6 lg:px-8'>
 		<Hero />
-		<Projects />
-		<Experience />
+		<Benefits />
 		<Footer />
 	</main>
 </Layout>

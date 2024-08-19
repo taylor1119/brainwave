@@ -1,7 +1,7 @@
 ---
-import NavbarBackdrop from './navbar-backdrop.astro'
+import Button from '~/components/primitive/button.astro'
+import NavbarBackdrop from './backdrop.astro'
 import HamburgerIcon from './hamburger-icon.astro'
-import Button from './button.astro'
 import { Icon } from 'astro-icon/components'
 
 const ITEMS = [
@@ -47,7 +47,7 @@ const ITEMS = [
 			<Icon name='logo' class='size-10' />
 			<span
 				class='bg-gradient-to-r from-lavender-purple to-bubblegum-pink bg-clip-text text-3xl font-bold text-transparent'
-				>Brainwave_</span
+				>Brainwave</span
 			>
 		</a>
 	</div>
@@ -80,7 +80,7 @@ const ITEMS = [
 
 	<div class='flex w-60 justify-end gap-x-8'>
 		<button
-			class='font-code text-xs font-bold uppercase text-white/50 hover:text-white max-lg:hidden'
+			class='font-code text-xs font-bold uppercase text-white/50 transition-colors hover:text-white max-lg:hidden'
 			>New account</button
 		>
 		<Button intent='outlined-gradient' class='max-lg:hidden'>
