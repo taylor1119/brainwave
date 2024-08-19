@@ -1,0 +1,196 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import discord from '~/assets/imgs/discord.png'
+import figma from '~/assets/imgs/figma.png'
+import framer from '~/assets/imgs/framer.png'
+import notion from '~/assets/imgs/notion.png'
+import photoshop from '~/assets/imgs/photoshop.png'
+import protopie from '~/assets/imgs/protopie.png'
+import raindrop from '~/assets/imgs/raindrop.png'
+import slack from '~/assets/imgs/slack.png'
+import { tw } from '~/libs/utils'
+import Button from '../primitive/button.astro'
+import Section from '../primitive/section.astro'
+
+const CONTENT = [
+	{
+		title: 'Seamless Integration',
+		text: "With smart automation and top-notch security, it's the perfect solution for teams looking to work smarter.",
+	},
+	{
+		title: 'Smart Automation',
+	},
+	{
+		title: 'Top-notch Security',
+	},
+]
+
+const APPS = [
+	{
+		title: 'Figma',
+		img: figma,
+		width: 26,
+		height: 36,
+		position: tw`rotate-[0]`,
+		rotation: tw`rotate-[0]`,
+	},
+	{
+		title: 'Notion',
+		img: notion,
+		width: 34,
+		height: 36,
+		position: tw`rotate-[45deg]`,
+		rotation: tw`-rotate-[45deg]`,
+	},
+	{
+		title: 'Discord',
+		img: discord,
+		width: 36,
+		height: 28,
+		position: tw`rotate-[90deg]`,
+		rotation: tw`-rotate-[90deg]`,
+	},
+	{
+		title: 'Slack',
+		img: slack,
+		width: 34,
+		height: 35,
+		position: tw`rotate-[135deg]`,
+		rotation: tw`-rotate-[135deg]`,
+	},
+	{
+		title: 'Photoshop',
+		img: photoshop,
+		width: 34,
+		height: 34,
+		position: tw`rotate-[180deg]`,
+		rotation: tw`-rotate-[180deg]`,
+	},
+	{
+		title: 'Protopie',
+		img: protopie,
+		width: 34,
+		height: 34,
+		position: tw`rotate-[225deg]`,
+		rotation: tw`-rotate-[225deg]`,
+	},
+	{
+		title: 'Framer',
+		img: framer,
+		width: 26,
+		height: 34,
+		position: tw`rotate-[270deg]`,
+		rotation: tw`-rotate-[270deg]`,
+	},
+	{
+		title: 'Raindrop',
+		img: raindrop,
+		width: 38,
+		height: 32,
+		position: tw`rotate-[315deg]`,
+		rotation: tw`-rotate-[315deg]`,
+	},
+]
+---
+
+<Section class='px-20 py-24'>
+	<div class='mx-auto max-w-7xl lg:flex'>
+		<div class='max-w-md'>
+			<h2
+				class='pb-4 text-[1.75rem] leading-[2.5rem] opacity-90 md:pb-8 md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight'
+			>
+				AI Chat App for seamless collaboration
+			</h2>
+
+			<ul class='max-w-[22rem] space-y-8 pb-10 md:pb-14'>
+				{
+					CONTENT.map((item) => (
+						<li>
+							<div class='flex items-center'>
+								<Icon name='check' width={24} height={24} />
+								<h6 class='pl-5 font-light leading-8'>
+									{item.title}
+								</h6>
+							</div>
+							{item.text && (
+								<p class='pt-3 text-[0.875rem] font-light leading-6 text-slate-gray md:text-base'>
+									{item.text}
+								</p>
+							)}
+						</li>
+					))
+				}
+			</ul>
+
+			<Button intent='outlined-gradient'>Try it now</Button>
+		</div>
+
+		<div class='mt-4 lg:ml-auto xl:w-[38rem]'>
+			<p
+				class='mb-8 text-[0.875rem] font-light leading-6 text-slate-gray md:mb-16 md:text-base lg:mx-auto lg:mb-32 lg:w-[22rem]'
+			>
+				With smart automation and top-notch security, it's the perfect
+				solution for teams looking to work smarter.
+			</p>
+
+			<div
+				class='scale:75 relative left-1/2 flex aspect-square w-[22rem] -translate-x-1/2 rounded-full border border-deep-indigo md:scale-100'
+			>
+				<div
+					class='m-auto flex aspect-square w-60 rounded-full border border-deep-indigo'
+				>
+					<div
+						class='m-auto aspect-square w-[6rem] rounded-full bg-conic-gradient p-[0.2rem]'
+					>
+						<div
+							class='flex h-full w-full items-center justify-center rounded-full bg-ink-black'
+						>
+							<Icon name='logo' width={48} height={48} />
+						</div>
+					</div>
+				</div>
+
+				<ul>
+					{
+						APPS.map((app) => (
+							<li
+								class:list={[
+									app.position,
+									'absolute left-1/2 top-0 -ml-[1.6rem] h-1/2 origin-bottom',
+								]}
+							>
+								<div
+									class:list={[
+										app.rotation,
+										'relative -top-[1.6rem] flex h-[3.2rem] w-[3.2rem] rounded-xl border border-white/15 bg-night-black',
+									]}
+								>
+									<Image
+										src={app.img}
+										alt={app.title}
+										width={app.width}
+										height={app.height}
+										loading='eager'
+										class='m-auto'
+									/>
+								</div>
+							</li>
+						))
+					}
+				</ul>
+
+				<div
+					class='pointer-events-none absolute right-full top-1/2 -mt-1 mr-10 hidden w-[32.625rem] xl:block'
+				>
+					<Icon name='curve-1' width={522} height={182} />
+				</div>
+				<div
+					class='pointer-events-none absolute left-full top-1/2 -mt-1 ml-10 hidden w-[10.125rem] xl:block'
+				>
+					<Icon name='curve-2' width={162} height={76} />
+				</div>
+			</div>
+		</div>
+	</div>
+</Section>
