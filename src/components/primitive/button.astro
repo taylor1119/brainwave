@@ -3,7 +3,7 @@ import type { HTMLAttributes } from 'astro/types'
 import { cva, type VariantProps } from 'class-variance-authority'
 import { cn, tw } from '~/libs/utils'
 
-const buttonVariants = cva(
+const button = cva(
 	tw`relative inline-flex h-11 items-center justify-center px-7 font-code text-xs font-bold uppercase tracking-wider transition-colors`,
 	{
 		variants: {
@@ -16,16 +16,12 @@ const buttonVariants = cva(
 	}
 )
 
-interface Props
-	extends HTMLAttributes<'button'>,
-		VariantProps<typeof buttonVariants> {}
+interface Props extends HTMLAttributes<'button'>, VariantProps<typeof button> {}
 
-//For Astro components, we recommend setting your defaultVariants within
-//Astro.props (which are `undefined` by default)
 const { intent = 'contained-white', class: classProp, ...props } = Astro.props
 ---
 
-<button class={cn(buttonVariants({ intent, class: classProp }))} {...props}>
+<button class={cn(button({ intent, class: classProp }))} {...props}>
 	<slot />
 
 	<svg

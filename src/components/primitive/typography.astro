@@ -1,0 +1,34 @@
+---
+import type { HTMLAttributes } from 'astro/types'
+import { cva, type VariantProps } from 'class-variance-authority'
+import { cn, tw } from '~/libs/utils'
+
+const typography = cva('', {
+	variants: {
+		component: {
+			h1: tw`text-[2.5rem] font-semibold leading-[3.25rem] md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem]`,
+			h2: tw`text-[1.75rem] leading-[2.5rem] md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight`,
+			h3: tw`text-[2rem] leading-normal md:text-[2.5rem]`,
+			h4: tw`text-[2rem] leading-normal`,
+			h5: tw`text-2xl leading-normal`,
+			h6: tw`text-lg font-semibold leading-8`,
+			p1: tw`text-[0.875rem] leading-[1.5rem] md:text-[1rem] md:leading-[1.75rem] lg:text-[1.25rem] lg:leading-8`,
+			p2: tw`text-[0.875rem] font-light leading-6 md:text-base`,
+			caption: tw`text-sm`,
+			tagline: tw`font-grotesk text-xs font-light uppercase tracking-tagline`,
+			quote: tw`font-code text-lg leading-normal`,
+		},
+	},
+})
+
+export interface Props
+	extends HTMLAttributes<'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'>,
+		VariantProps<typeof typography> {}
+
+const { class: classProp, component = 'h1', ...props } = Astro.props
+const Element = component?.[0] === 'h' ? component : 'p'
+---
+
+<Element class={cn(typography({ component, class: classProp }))} {...props}>
+	<slot />
+</Element>
