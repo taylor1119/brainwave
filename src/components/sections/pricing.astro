@@ -38,7 +38,7 @@ const PRICING = [
 			'Ability to explore the app and its features without any cost',
 		],
 	},
-]
+] as const
 ---
 
 <Section class='py-24 md:px-20'>
@@ -107,7 +107,11 @@ const PRICING = [
 						<ul class='pt-6'>
 							{item.features.map((feature) => (
 								<li class='flex items-start border-t border-deep-indigo py-5'>
-									<Icon name='check' width={24} height={24} />
+									<Icon
+										name='check-1'
+										width={24}
+										height={24}
+									/>
 									<Typography component='p2' class='pl-4'>
 										{feature}
 									</Typography>

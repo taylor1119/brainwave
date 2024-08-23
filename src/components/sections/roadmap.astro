@@ -1,0 +1,161 @@
+---
+import { Icon } from 'astro-icon/components'
+import { Image } from 'astro:assets'
+import gradient from '~/assets/imgs/gradient.png'
+import grid from '~/assets/imgs/grid.png'
+import roadmap1 from '~/assets/imgs/roadmap-1.png'
+import roadmap2 from '~/assets/imgs/roadmap-2.png'
+import roadmap3 from '~/assets/imgs/roadmap-3.png'
+import roadmap4 from '~/assets/imgs/roadmap-4.png'
+import Button from '../primitive/button.astro'
+import Section from '../primitive/section.astro'
+import Typography from '../primitive/typography.astro'
+
+const ITEMS = [
+	{
+		title: 'Voice recognition',
+		text: 'Enable the chatbot to understand and respond to voice commands, making it easier for users to interact with the app hands-free.',
+		date: 'May 2023',
+		done: true,
+		img: roadmap1,
+		colorful: true,
+	},
+	{
+		title: 'Gamification',
+		text: 'Add game-like elements, such as badges or leaderboards, to incentivize users to engage with the chatbot more frequently.',
+		date: 'May 2023',
+		done: false,
+		img: roadmap2,
+		colorful: false,
+	},
+	{
+		title: 'Chatbot customization',
+		text: "Allow users to customize the chatbot's appearance and behavior, making it more engaging and fun to interact with.",
+		date: 'May 2023',
+		done: true,
+		img: roadmap3,
+		colorful: false,
+	},
+	{
+		title: 'Integration with APIs',
+		text: 'Allow the chatbot to access external data sources, such as weather APIs or news APIs, to provide more relevant recommendations.',
+		date: 'May 2023',
+		done: false,
+		img: roadmap4,
+		colorful: true,
+	},
+] as const
+---
+
+<Section class='py-24 md:px-20'>
+	<div class='mx-auto pb-20 text-center'>
+		<Typography component='tagline' class='pb-4'
+			>Ready to get started</Typography
+		>
+		<Typography component='h2'>What we're working on</Typography>
+	</div>
+
+	<div class='relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-28'>
+		{
+			ITEMS.map((item) => {
+				const status = item.done ? 'Done' : 'In progress'
+
+				return (
+					<div
+						class={`rounded-[2.5rem] p-px md:flex even:md:translate-y-28 ${
+							item.colorful
+								? 'bg-conic-gradient'
+								: 'bg-deep-indigo'
+						}`}
+					>
+						<div class='relative overflow-hidden rounded-[2.4375rem] bg-ink-black p-8 xl:p-15'>
+							<div class='absolute left-0 top-0 max-w-full'>
+								<Image
+									src={grid}
+									alt='Grid'
+									width={550}
+									height={550}
+									loading='lazy'
+									class='w-full'
+								/>
+							</div>
+							<div class='relative'>
+								<div class='flex max-w-[27rem] items-center justify-between pb-8 md:pb-20'>
+									<Typography component='tagline'>
+										{item.date}
+									</Typography>
+
+									<div class='flex items-center rounded bg-white px-4 py-1 text-ink-black'>
+										<Icon
+											name={
+												item.done
+													? 'check-2'
+													: 'loading'
+											}
+											width={16}
+											height={16}
+											class='mr-2.5'
+										/>
+										<Typography component='tagline'>
+											{status}
+										</Typography>
+									</div>
+								</div>
+
+								<div class='-mx-15 -my-10 mb-10'>
+									<Image
+										src={item.img}
+										alt={item.title}
+										width={628}
+										height={426}
+										loading='lazy'
+										class='w-full'
+									/>
+								</div>
+								<Typography component='h4' class='pb-4'>
+									{item.title}
+								</Typography>
+								<Typography
+									component='p2'
+									class='text-slate-gray'
+								>
+									{item.text}
+								</Typography>
+							</div>
+						</div>
+					</div>
+				)
+			})
+		}
+
+		<div
+			class='absolute -left-[10rem] top-0 -z-10 h-[56.625rem] w-[56.625rem] opacity-50 mix-blend-color-dodge'
+		>
+			<Image
+				src={gradient}
+				alt='Gradient'
+				loading='lazy'
+				width={1417}
+				height={1417}
+				class='absolute left-1/2 top-1/2 h-[88.5625rem] w-[79.5625rem] max-w-[79.5625rem] -translate-x-1/2 -translate-y-1/2'
+			/>
+		</div>
+
+		<div
+			class='absolute -right-[10rem] bottom-0 -z-10 h-[56.625rem] w-[56.625rem] opacity-50 mix-blend-color-dodge'
+		>
+			<Image
+				src={gradient}
+				alt='Gradient'
+				loading='lazy'
+				width={1417}
+				height={1417}
+				class='absolute left-1/2 top-1/2 h-[88.5625rem] w-[79.5625rem] max-w-[79.5625rem] -translate-x-1/2 -translate-y-1/2'
+			/>
+		</div>
+	</div>
+
+	<div class='mt-12 flex justify-center md:mt-15 xl:mt-20'>
+		<Button intent='outlined-gradient'>Our roadmap</Button>
+	</div>
+</Section>

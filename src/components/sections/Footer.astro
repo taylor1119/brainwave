@@ -1,3 +1,35 @@
+---
+import { Icon } from 'astro-icon/components'
+
+const SOCIALS = [
+	{
+		title: 'Discord',
+		iconName: 'discord',
+		url: '#',
+	},
+	{
+		title: 'Twitter',
+		iconName: 'twitter',
+		url: '#',
+	},
+	{
+		title: 'Instagram',
+		iconName: 'instagram',
+		url: '#',
+	},
+	{
+		title: 'Telegram',
+		iconName: 'telegram',
+		url: '#',
+	},
+	{
+		title: 'Facebook',
+		iconName: 'facebook',
+		url: '#',
+	},
+] as const
+---
+
 <section class='relative border-x border-charcoal-black px-16 py-10'>
 	<div
 		class='flex flex-wrap items-center justify-center gap-10 sm:justify-between'
@@ -8,13 +40,15 @@
 
 		<ul class='flex flex-wrap justify-center gap-5'>
 			{
-				Array.from({ length: 5 }).map(() => (
+				SOCIALS.map((item) => (
 					<a
 						href='/'
-						aria-label='link'
+						aria-label={item.title}
 						target='_blank'
 						class='flex size-10 items-center justify-center rounded-full border border-charcoal-black bg-night-black transition-colors hover:bg-deep-indigo'
-					/>
+					>
+						<Icon name={item.iconName} width={16} height={16} />
+					</a>
 				))
 			}
 		</ul>
