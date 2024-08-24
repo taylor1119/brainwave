@@ -7,16 +7,15 @@ import loading from '~/assets/imgs/loading.png'
 import robot from '~/assets/imgs/robot.jpg'
 import Button from '~/components/primitive/button.astro'
 import Section from '~/components/primitive/section.astro'
+import Typography from '~/components/primitive/typography.astro'
 import HeroBackdrop from './backdrop.astro'
 import CompanyLogos from './company-logos.astro'
 import HeroNotification from './notification.astro'
 ---
 
-<Section class='py-24'>
+<Section id='hero' class='py-24'>
 	<div class='mx-auto max-w-5xl pb-20 text-center'>
-		<h1
-			class='pb-6 text-[2.5rem] font-semibold leading-[3.25rem] opacity-90 md:text-[2.75rem] md:leading-[3.75rem] lg:text-[3.25rem] lg:leading-[4.0625rem] xl:text-[3.75rem] xl:leading-[4.5rem]'
-		>
+		<Typography component='h1' class='pb-6'>
 			Explore the Possibilities of&nbsp;AI&nbsp;Chatting with {` `}
 			<span class='relative'>
 				Brainwave
@@ -27,13 +26,14 @@ import HeroNotification from './notification.astro'
 					class='absolute -bottom-2 left-0 w-full'
 				/>
 			</span>
-		</h1>
-		<p
-			class='mx-auto max-w-3xl pb-8 text-sm leading-7 text-lilac-gray md:text-base lg:text-[1.25rem] lg:leading-8'
+		</Typography>
+		<Typography
+			component='p1'
+			class='mx-auto max-w-3xl pb-8 text-lilac-gray'
 		>
 			Unleash the power of AI within Brainwave. Upgrade your productivity
 			with Brainwave, the open AI chat app.
-		</p>
+		</Typography>
 		<Button intent='contained-white'> Contact me </Button>
 	</div>
 
@@ -74,28 +74,28 @@ import HeroNotification from './notification.astro'
 		</div>
 
 		<div
-			class='absolute bottom-20 right-1/2 flex w-4/5 translate-x-1/2 items-center rounded-[1.7rem] bg-ink-black/80 px-6 py-4 text-base md:w-[32rem]'
+			class='absolute bottom-20 right-1/2 flex w-4/5 translate-x-1/2 items-center rounded-full bg-ink-black/80 px-6 py-4 text-base md:w-[32rem]'
 		>
-			<Image
-				src={loading}
-				alt='Loading'
-				loading='eager'
-				class='mr-4 h-5 w-5'
-			/>
-			<p>AI is generating</p>
+			<Image src={loading} alt='Loading' loading='lazy' class='size-5' />
+			<p class='pl-4'>AI is generating</p>
 		</div>
 
 		<ul
-			class='absolute -left-24 bottom-32 hidden rounded-2xl border border-white/10 bg-shadow-gray/40 px-1 py-1 backdrop-blur xl:flex'
+			class='absolute -left-24 bottom-32 hidden rounded-2xl border border-white/10 bg-shadow-gray/40 p-1 backdrop-blur xl:flex'
 		>
 			{
-				['home-smile', 'file-2', 'search-md', 'plus-square'].map(
-					(name) => (
-						<li class='p-5'>
-							<Icon name={name} width={24} height={25} />
-						</li>
-					)
-				)
+				(
+					[
+						'home-smile',
+						'file-2',
+						'search-md',
+						'plus-square',
+					] as const
+				).map((name) => (
+					<li class='p-5'>
+						<Icon name={name} width={24} height={25} />
+					</li>
+				))
 			}
 		</ul>
 

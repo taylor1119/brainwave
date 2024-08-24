@@ -1,13 +1,15 @@
 ---
 import { Icon } from 'astro-icon/components'
+import Typography from '~/components/primitive/typography.astro'
 ---
 
 <div class='space-y-16 pt-20 max-lg:hidden'>
-	<h5
-		class='text-center font-grotesk text-xs font-light uppercase tracking-tagline text-white/50'
+	<Typography
+		component='h5'
+		class='text-center font-grotesk text-xs font-light uppercase tracking-[0.15em] text-white/50'
 	>
 		Helping people create beautiful content at
-	</h5>
+	</Typography>
 	<ul class='flex'>
 		{
 			Array.from({ length: 5 }).map(() => (

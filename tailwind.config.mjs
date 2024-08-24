@@ -32,15 +32,9 @@ export default {
 			black: '#000000',
 		},
 		extend: {
-			letterSpacing: {
-				tagline: '.15em',
-			},
 			spacing: {
 				7.5: '1.875rem',
 				15: '3.75rem',
-			},
-			opacity: {
-				15: '.15',
 			},
 			transitionDuration: {
 				DEFAULT: '200ms',

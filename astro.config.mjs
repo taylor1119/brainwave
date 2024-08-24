@@ -6,4 +6,6 @@ import { defineConfig } from 'astro/config'
 export default defineConfig({
 	integrations: [tailwind(), icon({ iconDir: 'src/assets/svgs' })],
 	server: { port: 3000 },
+	site: 'https://riyadh-dev.github.io',
+	base: '/portfolio',
 })

@@ -41,7 +41,7 @@ const PRICING = [
 ] as const
 ---
 
-<Section class='py-24 md:px-20'>
+<Section id='pricing' class='py-24 md:px-20'>
 	<div class='relative hidden justify-center pb-[6.5rem] lg:flex'>
 		<Image
 			src={sphere}
@@ -57,14 +57,18 @@ const PRICING = [
 	</div>
 
 	<div class='mx-auto pb-20 text-center'>
-		<Typography component='tagline' class='pb-4'
-			>Get started with Brainwave</Typography
-		>
+		<div class='flex items-center justify-center gap-x-2 pb-4'>
+			<Icon name='bracket-left' class='size-4' />
+			<Typography component='tagline' class='text-lilac-gray'
+				>Get started with Brainwave</Typography
+			>
+			<Icon name='bracket-right' class='size-4' />
+		</div>
 		<Typography component='h2'>Pay once, use forever</Typography>
 	</div>
 
 	<div class='relative'>
-		<div class='flex gap-[1rem] max-lg:flex-wrap'>
+		<div class='mx-auto flex max-w-7xl gap-[1rem] max-lg:flex-wrap'>
 			{
 				PRICING.map((item, i) => (
 					<div class='h-full w-[19rem] rounded-[2rem] border border-deep-indigo px-6 odd:my-4 odd:py-8 even:py-14 max-lg:w-full lg:w-auto [&>h4]:first:text-sunset-orange [&>h4]:last:text-coral-red [&>h4]:even:text-lavender-purple'>
@@ -74,21 +78,20 @@ const PRICING = [
 
 						<Typography
 							component='p2'
-							class='min-h-[4rem] pb-3 text-white/50'
+							class='min-h-[4rem] text-white/50'
 						>
 							{item.description}
 						</Typography>
 
-						<div
-							class:list={[
-								'flex items-center pb-6',
-								{ invisible: i === 2 },
-							]}
-						>
-							<Typography component='h3'>$</Typography>
-							<div class='text-[5.5rem] font-bold leading-none'>
-								{item.price}
-							</div>
+						<div class='flex h-[7.75rem] items-center pb-6 pt-3'>
+							{i !== 2 && (
+								<>
+									<Typography component='h3'>$</Typography>
+									<div class='text-[5.5rem] font-bold leading-none'>
+										{item.price}
+									</div>
+								</>
+							)}
 						</div>
 
 						<Button
@@ -127,7 +130,7 @@ const PRICING = [
 	<div class='flex justify-center pt-10'>
 		<a
 			class='border-b font-code text-xs font-bold uppercase tracking-wider'
-			href='/pricing'
+			href='#pricing'
 		>
 			See the full details
 		</a>

@@ -47,85 +47,78 @@ const ITEMS = [
 ] as const
 ---
 
-<Section class='py-24 md:px-20'>
+<Section id='roadmap' class='py-24 md:px-20'>
 	<div class='mx-auto pb-20 text-center'>
-		<Typography component='tagline' class='pb-4'
-			>Ready to get started</Typography
-		>
+		<div class='flex items-center justify-center gap-x-2 pb-4'>
+			<Icon name='bracket-left' class='size-4' />
+			<Typography component='tagline' class='text-lilac-gray'
+				>Ready to get started</Typography
+			>
+			<Icon name='bracket-right' class='size-4' />
+		</div>
 		<Typography component='h2'>What we're working on</Typography>
 	</div>
 
-	<div class='relative grid gap-6 md:grid-cols-2 md:gap-4 md:pb-28'>
+	<div
+		class='relative mx-auto grid max-w-7xl gap-6 md:grid-cols-2 md:gap-4 md:pb-28'
+	>
 		{
-			ITEMS.map((item) => {
-				const status = item.done ? 'Done' : 'In progress'
+			ITEMS.map((item) => (
+				<div
+					class={`rounded-[2.5rem] p-px md:flex even:md:translate-y-28 ${
+						item.colorful ? 'bg-conic-gradient' : 'bg-deep-indigo'
+					}`}
+				>
+					<div class='relative overflow-hidden rounded-[2.4375rem] bg-ink-black p-8 xl:p-15'>
+						<div class='absolute left-0 top-0 w-full'>
+							<Image
+								src={grid}
+								alt='Grid'
+								width={550}
+								height={550}
+								loading='lazy'
+								class='w-full'
+							/>
+						</div>
+						<div class='relative'>
+							<div class='flex max-w-[27rem] items-center justify-between pb-8 md:pb-20'>
+								<Typography component='tagline'>
+									{item.date}
+								</Typography>
 
-				return (
-					<div
-						class={`rounded-[2.5rem] p-px md:flex even:md:translate-y-28 ${
-							item.colorful
-								? 'bg-conic-gradient'
-								: 'bg-deep-indigo'
-						}`}
-					>
-						<div class='relative overflow-hidden rounded-[2.4375rem] bg-ink-black p-8 xl:p-15'>
-							<div class='absolute left-0 top-0 max-w-full'>
+								<div class='flex items-center rounded bg-white px-4 py-1 text-ink-black'>
+									<Icon
+										name={item.done ? 'check-2' : 'loading'}
+										width={16}
+										height={16}
+										class='mr-2.5'
+									/>
+									<Typography component='tagline'>
+										{item.done ? 'Done' : 'In progress'}
+									</Typography>
+								</div>
+							</div>
+
+							<div class='-mx-15 -my-10 mb-10'>
 								<Image
-									src={grid}
-									alt='Grid'
-									width={550}
-									height={550}
+									src={item.img}
+									alt={item.title}
+									width={628}
+									height={426}
 									loading='lazy'
 									class='w-full'
 								/>
 							</div>
-							<div class='relative'>
-								<div class='flex max-w-[27rem] items-center justify-between pb-8 md:pb-20'>
-									<Typography component='tagline'>
-										{item.date}
-									</Typography>
-
-									<div class='flex items-center rounded bg-white px-4 py-1 text-ink-black'>
-										<Icon
-											name={
-												item.done
-													? 'check-2'
-													: 'loading'
-											}
-											width={16}
-											height={16}
-											class='mr-2.5'
-										/>
-										<Typography component='tagline'>
-											{status}
-										</Typography>
-									</div>
-								</div>
-
-								<div class='-mx-15 -my-10 mb-10'>
-									<Image
-										src={item.img}
-										alt={item.title}
-										width={628}
-										height={426}
-										loading='lazy'
-										class='w-full'
-									/>
-								</div>
-								<Typography component='h4' class='pb-4'>
-									{item.title}
-								</Typography>
-								<Typography
-									component='p2'
-									class='text-slate-gray'
-								>
-									{item.text}
-								</Typography>
-							</div>
+							<Typography component='h4' class='pb-4'>
+								{item.title}
+							</Typography>
+							<Typography component='p2' class='text-slate-gray'>
+								{item.text}
+							</Typography>
 						</div>
 					</div>
-				)
-			})
+				</div>
+			))
 		}
 
 		<div

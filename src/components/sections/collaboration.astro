@@ -12,6 +12,7 @@ import slack from '~/assets/imgs/slack.png'
 import { tw } from '~/libs/utils'
 import Button from '../primitive/button.astro'
 import Section from '../primitive/section.astro'
+import Typography from '../primitive/typography.astro'
 
 const CONTENT = [
 	{
@@ -94,14 +95,12 @@ const APPS = [
 ]
 ---
 
-<Section class='px-20 py-24'>
+<Section id='collaboration' class='px-20 py-24'>
 	<div class='mx-auto max-w-7xl lg:flex'>
 		<div class='max-w-md'>
-			<h2
-				class='pb-4 text-[1.75rem] leading-[2.5rem] opacity-90 md:pb-8 md:text-[2rem] md:leading-[2.5rem] lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight'
-			>
+			<Typography component='h2' class='pb-4 md:pb-8'>
 				AI Chat App for seamless collaboration
-			</h2>
+			</Typography>
 
 			<ul class='max-w-[22rem] space-y-8 pb-10 md:pb-14'>
 				{
@@ -109,14 +108,20 @@ const APPS = [
 						<li>
 							<div class='flex items-center'>
 								<Icon name='check-1' width={24} height={24} />
-								<h6 class='pl-5 font-light leading-8'>
+								<Typography
+									component='h6'
+									class='pl-5 text-base font-light leading-8'
+								>
 									{item.title}
-								</h6>
+								</Typography>
 							</div>
 							{item.text && (
-								<p class='pt-3 text-[0.875rem] font-light leading-6 text-slate-gray md:text-base'>
+								<Typography
+									component='p2'
+									class='pt-3 text-slate-gray'
+								>
 									{item.text}
-								</p>
+								</Typography>
 							)}
 						</li>
 					))
@@ -127,12 +132,13 @@ const APPS = [
 		</div>
 
 		<div class='mt-4 lg:ml-auto xl:w-[38rem]'>
-			<p
-				class='mb-8 text-[0.875rem] font-light leading-6 text-slate-gray md:mb-16 md:text-base lg:mx-auto lg:mb-32 lg:w-[22rem]'
+			<Typography
+				component='p2'
+				class='pb-8 text-slate-gray md:pb-16 lg:mx-auto lg:w-[22rem] lg:pb-32'
 			>
 				With smart automation and top-notch security, it's the perfect
 				solution for teams looking to work smarter.
-			</p>
+			</Typography>
 
 			<div
 				class='scale:75 relative left-1/2 flex aspect-square w-[22rem] -translate-x-1/2 rounded-full border border-deep-indigo md:scale-100'
@@ -141,10 +147,10 @@ const APPS = [
 					class='m-auto flex aspect-square w-60 rounded-full border border-deep-indigo'
 				>
 					<div
-						class='m-auto aspect-square w-[6rem] rounded-full bg-conic-gradient p-[0.2rem]'
+						class='m-auto aspect-square w-24 rounded-full bg-conic-gradient p-[0.2rem]'
 					>
 						<div
-							class='flex h-full w-full items-center justify-center rounded-full bg-ink-black'
+							class='flex size-full items-center justify-center rounded-full bg-ink-black'
 						>
 							<Icon name='logo' width={48} height={48} />
 						</div>
@@ -163,7 +169,7 @@ const APPS = [
 								<div
 									class:list={[
 										app.rotation,
-										'relative -top-[1.6rem] flex h-[3.2rem] w-[3.2rem] rounded-xl border border-white/15 bg-night-black',
+										'relative -top-[1.6rem] flex size-14 rounded-xl border border-white/15 bg-night-black',
 									]}
 								>
 									<Image
@@ -181,12 +187,12 @@ const APPS = [
 				</ul>
 
 				<div
-					class='pointer-events-none absolute right-full top-1/2 -mt-1 mr-10 hidden w-[32.625rem] xl:block'
+					class='absolute right-full top-1/2 -mt-1 mr-10 hidden w-[32.625rem] xl:block'
 				>
 					<Icon name='curve-1' width={522} height={182} />
 				</div>
 				<div
-					class='pointer-events-none absolute left-full top-1/2 -mt-1 ml-10 hidden w-[10.125rem] xl:block'
+					class='absolute left-full top-1/2 -mt-1 ml-10 hidden w-[10.125rem] xl:block'
 				>
 					<Icon name='curve-2' width={162} height={76} />
 				</div>

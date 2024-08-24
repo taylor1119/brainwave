@@ -7,17 +7,17 @@ import { Icon } from 'astro-icon/components'
 const ITEMS = [
 	{
 		label: 'Features',
-		link: '#features',
+		link: '#benefits',
+		mobileOnly: false,
+	},
+	{
+		label: 'How to use',
+		link: '#collaboration',
 		mobileOnly: false,
 	},
 	{
 		label: 'Pricing',
 		link: '#pricing',
-		mobileOnly: false,
-	},
-	{
-		label: 'How to use',
-		link: '#how-to-use',
 		mobileOnly: false,
 	},
 	{
@@ -40,10 +40,10 @@ const ITEMS = [
 
 <nav
 	id='header'
-	class='fixed left-0 top-0 z-50 flex h-20 w-full items-center justify-between border-b border-slate-gray px-5 py-4 lg:bg-ink-black/90 lg:px-8 lg:backdrop-blur-sm xl:px-10'
+	class='fixed left-0 top-0 z-30 flex h-20 w-full items-center justify-between border-b border-slate-gray px-5 py-4 lg:bg-ink-black/90 lg:px-8 lg:backdrop-blur-sm xl:px-10'
 >
 	<div class='w-60'>
-		<a class='flex items-center gap-x-1' href='#hero'>
+		<a href='#hero' class='flex items-center gap-x-1'>
 			<Icon name='logo' class='size-10' />
 			<span
 				class='bg-gradient-to-r from-lavender-purple to-bubblegum-pink bg-clip-text text-3xl font-bold text-transparent'

@@ -24,7 +24,7 @@ const SERVICE_ICON_NAMES = [
 ] as const
 ---
 
-<Section class='py-24 md:px-20'>
+<Section id='services' class='py-24 md:px-20'>
 	<div class='space-y-4 pb-20 text-center'>
 		<Typography component='h2'>Generative AI made for creators.</Typography>
 		<Typography component='p2' class='text-slate-gray'
@@ -106,8 +106,6 @@ const SERVICE_ICON_NAMES = [
 						app&apos;s photo editing feature. Try it now!
 					</Typography>
 				</div>
-
-				<!-- <PhotoChatMessage /> -->
 			</div>
 
 			<div
@@ -137,11 +135,12 @@ const SERVICE_ICON_NAMES = [
 									]}
 								>
 									<div
-										class={
-											i === 2
-												? 'flex h-full w-full items-center justify-center rounded-2xl bg-night-black'
-												: ''
-										}
+										class:list={[
+											{
+												'flex h-full w-full items-center justify-center rounded-2xl bg-night-black':
+													i === 2,
+											},
+										]}
 									>
 										<Icon
 											name={item}
@@ -156,7 +155,7 @@ const SERVICE_ICON_NAMES = [
 				</div>
 
 				<div
-					class='relative h-[20rem] overflow-hidden rounded-xl bg-ink-black md:h-[25rem]'
+					class='relative h-80 overflow-hidden rounded-xl bg-ink-black md:h-[25rem]'
 				>
 					<Image
 						src={service3}
@@ -166,8 +165,6 @@ const SERVICE_ICON_NAMES = [
 						loading='lazy'
 						class='h-full w-full object-cover'
 					/>
-
-					<!-- 	<VideoChatMessage /> -->
 
 					<div
 						class='absolute bottom-0 left-0 flex w-full items-center gap-x-3 p-6'

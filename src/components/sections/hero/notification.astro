@@ -4,12 +4,13 @@ import notification1 from '~/assets/imgs/notification-1.png'
 import notification2 from '~/assets/imgs/notification-2.png'
 import notification3 from '~/assets/imgs/notification-3.png'
 import notification4 from '~/assets/imgs/notification-4.png'
+import Typography from '~/components/primitive/typography.astro'
 
 const notificationImages = [notification2, notification3, notification4]
 ---
 
 <div
-	class='absolute -right-24 bottom-48 hidden w-[18rem] items-center gap-5 rounded-2xl border border-white/10 bg-shadow-gray/40 p-4 pr-6 backdrop-blur xl:flex'
+	class='absolute -right-24 bottom-48 hidden w-72 items-center gap-5 rounded-2xl border border-white/10 bg-shadow-gray/40 p-4 pr-6 backdrop-blur xl:flex'
 >
 	<Image
 		src={notification1}
@@ -21,10 +22,12 @@ const notificationImages = [notification2, notification3, notification4]
 	/>
 
 	<div class='flex-1'>
-		<h6 class='mb-1 text-base font-semibold'>Code generation</h6>
+		<Typography component='h6' class='pb-1 text-base'
+			>Code generation</Typography
+		>
 
 		<div class='flex items-center justify-between'>
-			<ul class='-m-0.5 flex gap-x-2'>
+			<ul class='flex gap-x-2'>
 				{
 					notificationImages.map((item) => (
 						<li>
@@ -40,7 +43,9 @@ const notificationImages = [notification2, notification3, notification4]
 					))
 				}
 			</ul>
-			<div class='body-2 text-steel-gray'>1m ago</div>
+			<Typography component='p2' class='text-steel-gray'
+				>1m ago</Typography
+			>
 		</div>
 	</div>
 </div>

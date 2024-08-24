@@ -3,17 +3,17 @@
 	"type": "module",
 	"version": "0.0.1",
 	"scripts": {
-		"dev": "bunx --bun --smol astro dev",
-		"build": "bunx --bun astro build",
-		"preview": "bunx --bun astro preview",
-		"check": "bunx --bun astro check",
-		"format": "bunx --bun prettier --write --ignore-unknown --cache --cache-location=.prettiercache .",
-		"lint": "bunx --bun eslint . --ext ts,tsx,astro --fix --cache --report-unused-disable-directives --max-warnings 0"
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"check": "astro check",
+		"format": "prettier --write --ignore-unknown --cache --cache-location=.prettiercache .",
+		"lint": "eslint . --ext ts,tsx,astro --fix --cache --report-unused-disable-directives --max-warnings 0"
 	},
 	"dependencies": {
 		"@astrojs/check": "0.9.3",
 		"@astrojs/tailwind": "^5.1.0",
-		"astro": "4.14.2",
+		"astro": "4.14.5",
 		"astro-icon": "^1.1.1",
 		"class-variance-authority": "^0.7.0",
 		"clsx": "^2.1.1",
@@ -23,8 +23,7 @@
 		"typescript": "^5.5.4"
 	},
 	"devDependencies": {
-		"@types/bun": "^1.1.6",
-		"@typescript-eslint/eslint-plugin": "^8.1.0",
+		"@typescript-eslint/eslint-plugin": "^8.2.0",
 		"eslint": "8.57.0",
 		"eslint-config-prettier": "^9.1.0",
 		"eslint-plugin-astro": "^1.2.3",
@@ -32,5 +31,6 @@
 		"prettier": "^3.3.3",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.6.6"
-	}
+	},
+	"packageManager": "pnpm@9.8.0"
 }

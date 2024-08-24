@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components'
 import { Image } from 'astro:assets'
 import BenefitCard from '~/assets/imgs/benefit-card.png'
 import Section from '../primitive/section.astro'
+import Typography from '../primitive/typography.astro'
 
 const BENEFITS = [
 	{
@@ -44,15 +45,13 @@ const BENEFITS = [
 ] as const
 ---
 
-<Section class='py-24'>
-	<h2
-		class='mx-auto pb-20 text-center text-[1.75rem] leading-[2.5rem] opacity-90 md:max-w-md md:text-[2rem] md:leading-[2.5rem] lg:max-w-2xl lg:text-[2.5rem] lg:leading-[3.5rem] xl:text-[3rem] xl:leading-tight'
-	>
+<Section id='benefits' class='py-24'>
+	<Typography component='h2' class='mx-auto pb-20 text-center lg:max-w-2xl'>
 		Chat Smarter, Not Harder with Brainwave
-	</h2>
+	</Typography>
 
 	<div
-		class='grid grid-cols-1 place-items-center gap-x-14 gap-y-8 lg:grid-cols-2 lg:px-16 xl:grid-cols-3'
+		class='mx-auto grid max-w-screen-2xl grid-cols-1 place-items-center gap-x-14 gap-y-8 lg:grid-cols-2 lg:px-16 xl:grid-cols-3'
 	>
 		{
 			BENEFITS.map((item, i) => (
@@ -62,12 +61,12 @@ const BENEFITS = [
 					)}
 
 					<div
-						class='absolute inset-0.5 -z-10 scale-[1.006] bg-charcoal-black'
-						style={{ clipPath: 'url(#benefits)' }}
+						class='absolute inset-0.5 -z-10 scale-[1.006] bg-deep-indigo'
+						style={{ clipPath: 'url(#benefit-card)' }}
 					/>
 					<div
 						class='absolute inset-0.5 -z-10 bg-ink-black'
-						style={{ clipPath: 'url(#benefits)' }}
+						style={{ clipPath: 'url(#benefit-card)' }}
 					>
 						<div class='absolute inset-0 opacity-0 transition-opacity group-hover:opacity-10'>
 							<Image
@@ -85,9 +84,12 @@ const BENEFITS = [
 						<h3 class='pb-5 text-2xl leading-normal'>
 							{item.title}
 						</h3>
-						<p class='pb-6 text-[0.875rem] font-light leading-6 text-amethyst-purple md:text-base'>
+						<Typography
+							component='p2'
+							class='pb-6 text-amethyst-purple'
+						>
 							{item.text}
-						</p>
+						</Typography>
 						<div class='mt-auto flex items-center justify-between'>
 							<Icon name={item.iconName} class='size-12' />
 							<a href='/' class='flex items-center gap-x-4'>
@@ -104,7 +106,7 @@ const BENEFITS = [
 	</div>
 
 	<svg width='0' height='0'>
-		<clipPath id='benefits' clipPathUnits='objectBoundingBox'>
+		<clipPath id='benefit-card' clipPathUnits='objectBoundingBox'>
 			<path
 				d='M0.079,0 h0.756 a0.079,0.083,0,0,1,0.058,0.026 l0.086,0.096 A0.079,0.083,0,0,1,1,0.179 V0.917 c0,0.046,-0.035,0.083,-0.079,0.083 H0.079 c-0.044,0,-0.079,-0.037,-0.079,-0.083 V0.083 C0,0.037,0.035,0,0.079,0'
 			></path>
