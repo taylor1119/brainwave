@@ -17,7 +17,7 @@ export default {
 			'charcoal-black': '#26242C',
 			'lilac-gray': '#CAC6DD',
 			'amethyst-purple': '#ADA8C3',
-			'slate-gray': '#757185',
+			'slate-gray': '#C1C4CF',
 			'midnight-blue': '#3F3A52',
 			'deep-indigo': '#252134',
 			'night-black': '#15131D',
